@@ -15,7 +15,7 @@ const SectionTitle = ({
   subtitle,
   alignment = 'center',
   className,
-  maxWidth = 'max-w-3xl',
+  maxWidth = 'max-w-4xl',
 }: SectionTitleProps) => {
   return (
     <div 
@@ -35,7 +35,7 @@ const SectionTitle = ({
         >
           {subtitle || ''}
         </span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gradient">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gradient break-normal">
           {title}
         </h2>
         <div className={cn(
