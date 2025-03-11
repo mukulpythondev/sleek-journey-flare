@@ -20,7 +20,7 @@ const SectionTitle = ({
   return (
     <div 
       className={cn(
-        'mb-12',
+        'mb-12 w-full',
         alignment === 'center' && 'text-center mx-auto',
         alignment === 'left' && 'text-left mr-auto',
         alignment === 'right' && 'text-right ml-auto',
@@ -35,7 +35,7 @@ const SectionTitle = ({
         >
           {subtitle || ''}
         </span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gradient break-normal">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gradient break-words sm:break-normal">
           {title}
         </h2>
         <div className={cn(

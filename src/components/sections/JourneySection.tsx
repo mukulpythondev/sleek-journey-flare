@@ -57,9 +57,9 @@ const JourneySection = () => {
           className="opacity-0 animate-fade-in"
         />
         
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="mt-20 flex flex-col items-center max-w-xl mx-auto">
           {steps.map((step, index) => (
-            <div key={index} data-step={index + 1}>
+            <div key={index} data-step={index + 1} className="w-full mb-16 last:mb-0">
               <JourneyStep
                 step={index + 1}
                 title={step.title}

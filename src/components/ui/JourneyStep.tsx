@@ -47,12 +47,12 @@ const JourneyStep = ({
   }, [isLast]);
   
   return (
-    <div className={cn("relative flex flex-col items-center", className)} ref={stepRef}>
+    <div className={cn("relative flex flex-col items-center w-full", className)} ref={stepRef}>
       {/* Center line */}
       {!isLast && (
         <div 
           ref={lineRef}
-          className="absolute top-16 bottom-0 w-px bg-primary/30 origin-top h-full" 
+          className="absolute top-16 h-[calc(100%_-_4rem)] w-px bg-primary/30 origin-top" 
         />
       )}
       
@@ -74,7 +74,7 @@ const JourneyStep = ({
       </div>
       
       {/* Content */}
-      <div className="text-center px-4 max-w-xs">
+      <div className="text-center px-4 w-full max-w-sm">
         <h3 className="font-bold text-lg text-white mb-2">{title}</h3>
         <p className="text-sm text-neutral-400">{description}</p>
       </div>
