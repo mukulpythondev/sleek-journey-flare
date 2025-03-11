@@ -7,6 +7,7 @@ interface SectionTitleProps {
   subtitle?: string;
   alignment?: 'left' | 'center' | 'right';
   className?: string;
+  maxWidth?: string;
 }
 
 const SectionTitle = ({
@@ -14,14 +15,16 @@ const SectionTitle = ({
   subtitle,
   alignment = 'center',
   className,
+  maxWidth = 'max-w-3xl',
 }: SectionTitleProps) => {
   return (
     <div 
       className={cn(
         'mb-12',
-        alignment === 'center' && 'text-center',
-        alignment === 'left' && 'text-left',
-        alignment === 'right' && 'text-right',
+        alignment === 'center' && 'text-center mx-auto',
+        alignment === 'left' && 'text-left mr-auto',
+        alignment === 'right' && 'text-right ml-auto',
+        maxWidth,
         className
       )}
     >

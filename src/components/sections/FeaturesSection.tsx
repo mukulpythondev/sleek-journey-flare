@@ -3,45 +3,45 @@ import React from 'react';
 import SectionTitle from '@/components/ui/SectionTitle';
 import FeatureCard from '@/components/ui/FeatureCard';
 import { 
+  Brain, 
+  Link, 
+  FileCode, 
   Zap, 
-  Code, 
-  Layers, 
-  LineChart, 
-  Lock, 
-  Smartphone 
+  Users, 
+  Search 
 } from 'lucide-react';
 
 const FeaturesSection = () => {
   const features = [
     {
+      icon: <Brain className="h-6 w-6 text-primary" />,
+      title: "AI-Powered Code Review",
+      description: "Automate PR validation & get insightful feedback from our advanced AI system."
+    },
+    {
+      icon: <Link className="h-6 w-6 text-primary" />,
+      title: "Aptos Blockchain Integration",
+      description: "Secure, trustless payouts using the fast and efficient Aptos Blockchain."
+    },
+    {
+      icon: <FileCode className="h-6 w-6 text-primary" />,
+      title: "Smart Contracts for Rewards",
+      description: "No manual approvals needed. Smart contracts automate the reward process."
+    },
+    {
       icon: <Zap className="h-6 w-6 text-primary" />,
-      title: "Lightning Fast",
-      description: "Optimized for speed, ensuring a smooth and responsive user experience."
+      title: "Instant Payouts in APT",
+      description: "Get paid instantly after your PR is approved without any delays."
     },
     {
-      icon: <Code className="h-6 w-6 text-primary" />,
-      title: "Clean Code",
-      description: "Meticulously crafted code following best practices for maintainability."
+      icon: <Users className="h-6 w-6 text-primary" />,
+      title: "Decentralized Contribution",
+      description: "Open-source, community-driven platform that rewards real value creation."
     },
     {
-      icon: <Layers className="h-6 w-6 text-primary" />,
-      title: "Modular Design",
-      description: "Built with reusable components that seamlessly work together."
-    },
-    {
-      icon: <LineChart className="h-6 w-6 text-primary" />,
-      title: "SEO Optimized",
-      description: "Engineered to perform excellently in search engine rankings."
-    },
-    {
-      icon: <Lock className="h-6 w-6 text-primary" />,
-      title: "Secure & Reliable",
-      description: "Implemented with security best practices for peace of mind."
-    },
-    {
-      icon: <Smartphone className="h-6 w-6 text-primary" />,
-      title: "Fully Responsive",
-      description: "Adapts perfectly to any screen size for a consistent experience."
+      icon: <Search className="h-6 w-6 text-primary" />,
+      title: "Transparent & Trustless",
+      description: "Verified transactions & complete reward history available on the blockchain."
     }
   ];
   
@@ -55,8 +55,8 @@ const FeaturesSection = () => {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <SectionTitle
-          subtitle="Why Choose Us"
-          title="Powerful Features"
+          subtitle="Why Choose GitGains"
+          title="Revolutionizing Open-Source with Blockchain & AI"
           className="opacity-0 animate-fade-in"
         />
         

@@ -39,11 +39,14 @@ const FeatureCard = ({ icon, title, description, className }: FeatureCardProps) 
         className
       )}
     >
-      <div className="mb-4 p-3 rounded-lg bg-primary/20 w-12 h-12 flex items-center justify-center">
+      <div className="mb-5 p-3 rounded-lg bg-primary/20 w-14 h-14 flex items-center justify-center">
         {icon}
       </div>
-      <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
+      <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
       <p className="text-neutral-400 text-sm">{description}</p>
+      
+      {/* Bottom decoration line with gradient */}
+      <div className="mt-5 h-1 w-12 bg-gradient-to-r from-primary to-primary/50 rounded-full"></div>
     </div>
   );
 };

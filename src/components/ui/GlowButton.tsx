@@ -7,6 +7,8 @@ interface GlowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
   variant?: 'default' | 'secondary' | 'outline';
   size?: 'default' | 'sm' | 'lg';
   glow?: boolean;
+  as?: React.ElementType;
+  href?: string;
 }
 
 const GlowButton = ({
@@ -15,10 +17,13 @@ const GlowButton = ({
   variant = 'default',
   size = 'default',
   glow = true,
+  as: Component = 'button',
+  href,
   ...props
 }: GlowButtonProps) => {
   return (
-    <button
+    <Component
+      href={href}
       className={cn(
         'relative inline-flex items-center justify-center rounded-md font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
         // Base styles by variant
@@ -37,7 +42,7 @@ const GlowButton = ({
       {...props}
     >
       {children}
-    </button>
+    </Component>
   );
 };
 

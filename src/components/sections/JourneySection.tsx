@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import SectionTitle from '@/components/ui/SectionTitle';
 import JourneyStep from '@/components/ui/JourneyStep';
-import { GitPullRequest, SendHorizontal, CreditCard } from 'lucide-react';
+import { GitPullRequest, CheckSquare, CreditCard } from 'lucide-react';
 
 const JourneySection = () => {
   const [activeStep, setActiveStep] = useState(1);
@@ -29,18 +29,18 @@ const JourneySection = () => {
   // Step content
   const steps = [
     {
-      title: "Raise PR",
-      description: "Start your journey by creating a pull request with your innovative code contribution.",
+      title: "Raise a PR",
+      description: "Submit contributions on supported repositories and start your journey.",
       icon: <GitPullRequest className="h-10 w-10 text-primary" />
     },
     {
-      title: "Submit PR",
-      description: "Your PR is carefully reviewed by our team, ensuring quality and compatibility.",
-      icon: <SendHorizontal className="h-10 w-10 text-primary" />
+      title: "Submit Your PR",
+      description: "AI reviews and validates your code for quality and compatibility.",
+      icon: <CheckSquare className="h-10 w-10 text-primary" />
     },
     {
-      title: "Get Paid",
-      description: "Once approved, receive immediate payment for your valuable contribution.",
+      title: "Get Paid Instantly",
+      description: "Receive secure payouts via Aptos Blockchain as soon as your PR is approved.",
       icon: <CreditCard className="h-10 w-10 text-primary" />
     }
   ];
@@ -52,8 +52,8 @@ const JourneySection = () => {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <SectionTitle
-          subtitle="Your Path Forward"
-          title="Journey to Success"
+          subtitle="How It Works"
+          title="Your Journey to Rewards"
           className="opacity-0 animate-fade-in"
         />
         
