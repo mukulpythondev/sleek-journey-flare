@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Github } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -50,7 +50,13 @@ const Navbar = () => {
     }
   };
   
-  const navItems = ['Home', 'How It Works', 'Features', 'Open Bounties', 'Leaderboard'];
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'How It Works', path: '/#how-it-works' },
+    { name: 'Features', path: '/#features' },
+    { name: 'Open Bounties', path: '/#open-bounties' },
+    { name: 'Leaderboard', path: '/leaderboard' }
+  ];
   
   return (
     <header
@@ -60,22 +66,22 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <a 
-          href="#" 
+        <Link 
+          to="/" 
           className="font-bold text-xl tracking-tight opacity-90 hover:opacity-100 transition-opacity flex items-center"
         >
           <span className="text-gradient-primary">🚀 Git</span><span className="text-white">Gains</span>
-        </a>
+        </Link>
         
         <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <a
-              key={item}
-              href={item === 'Leaderboard' ? '/leaderboard' : `#${item.toLowerCase().replace(/\s+/g, '-')}`}
+            <Link
+              key={item.name}
+              to={item.path}
               className="text-sm font-medium text-neutral-300 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-primary after:origin-right after:scale-x-0 hover:after:scale-x-100 after:transition-transform"
             >
-              {item}
-            </a>
+              {item.name}
+            </Link>
           ))}
         </nav>
         
