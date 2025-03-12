@@ -1,9 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { useNavigate } from 'react-router-dom';
+import { Github } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const { toast } = useToast();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +19,38 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  const handleGitHubLogin = async () => {
+    try {
+      // In a real implementation, this would redirect to GitHub OAuth
+      const clientId = 'your-github-client-id'; // Would be stored in env variables
+      const redirectUri = `${window.location.origin}/auth/callback`;
+      const scope = 'user:email,read:user';
+      
+      const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}`;
+      
+      // For now, just show a toast and navigate to a placeholder page
+      toast({
+        title: "GitHub Auth Demo",
+        description: "In a real implementation, this would redirect to GitHub OAuth.",
+      });
+      
+      // Uncomment this to enable actual GitHub OAuth redirect:
+      // window.location.href = authUrl;
+      
+      // For demo purposes, navigate to the leaderboard
+      navigate('/leaderboard');
+    } catch (error) {
+      console.error('GitHub auth error:', error);
+      toast({
+        title: "Authentication Error",
+        description: "Failed to authenticate with GitHub. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+  
+  const navItems = ['Home', 'How It Works', 'Features', 'Open Bounties', 'Leaderboard'];
   
   return (
     <header
@@ -31,10 +68,10 @@ const Navbar = () => {
         </a>
         
         <nav className="hidden md:flex items-center space-x-6">
-          {['Home', 'How It Works', 'Features', 'Open Bounties', 'Dashboard'].map((item) => (
+          {navItems.map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+              href={item === 'Leaderboard' ? '/leaderboard' : `#${item.toLowerCase().replace(/\s+/g, '-')}`}
               className="text-sm font-medium text-neutral-300 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-primary after:origin-right after:scale-x-0 hover:after:scale-x-100 after:transition-transform"
             >
               {item}
@@ -42,12 +79,13 @@ const Navbar = () => {
           ))}
         </nav>
         
-        <a 
-          href="#contact" 
-          className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2 focus:ring-offset-background"
+        <button 
+          onClick={handleGitHubLogin}
+          className="inline-flex h-10 items-center justify-center rounded-md bg-[#24292e] hover:bg-[#24292e]/90 px-4 py-2 text-sm font-medium text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2 focus:ring-offset-background gap-2"
         >
-          Login/Sign Up
-        </a>
+          <Github size={18} />
+          Login with GitHub
+        </button>
       </div>
     </header>
   );
